@@ -1,8 +1,11 @@
 # react-components
 
-## Swiper  演示地址： <http://www.hekibun.com/swiper>
+
+暂时只有Swiper  持续完善中 
+
+Swiper  演示地址： <http://www.hekibun.com/swiper>
 	
-###  API
+API
 
 <table>
         <tr>
@@ -77,29 +80,33 @@
 * 安装
 
 ```
-	$ npm install react-components
+$ git clone https://github.com/hekiheki/react-components.git
+$ npm link || yarn link
+```
 
+* 引入
+
+```
+$ npm link react-components
 ```
 
 * 使用
 
 ```
+// 在项目中引用
+import Swiper form 'react-components'
 
-	// 在项目中引用
-	
-	import Swiper form 'react-components'
-
-	render(){
-		return (
-			<div className="App">
-        		<Swiper>
-		           <div><h3>1</h3></div>
-		           <div><h3>2</h3></div>
-		           <div><h3>3</h3></div>
-		           <div><h3>4</h3></div>
-		        </Swiper>
-      		</div>
-      )
-	}
+render(){
+	return (
+		<div className="App">
+    		<Swiper>
+	           <div><h3>1</h3></div>
+	           <div><h3>2</h3></div>
+	           <div><h3>3</h3></div>
+	           <div><h3>4</h3></div>
+	        </Swiper>
+  		</div>
+  )
+}
 ```
 
