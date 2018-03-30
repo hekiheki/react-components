@@ -1,5 +1,5 @@
 {
-  "name": "react-components",
+  "name": "heki-components",
   "version": "1.0.0",
   "description": "",
   "main": "dist/bundle.js",
@@ -10,8 +10,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
-  "author": "hekibun",
+  "author": "hekibun <hekibun@gmail.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hekiheki/react-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hekiheki/react-components/issues"
+  },
+  "homepage": "https://github.com/hekiheki/react-components#readme",
   "dependencies": {
     "prop-types": "^15.6.1",
     "react": "^16.2.0"

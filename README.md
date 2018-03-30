@@ -79,19 +79,11 @@
 ```
 	$ npm install react-components
 
-	// link出去，建议用yarn link ,速度比较快
-
-	$ npm link || yarn link
-
 ```
 
 * 使用
 
 ```
-	// 先进入项目文件根目录
-
-	$ cd projectPath
-	$ yarn link react-components
 
 	// 在项目中引用
 	
