@@ -6,9 +6,9 @@ class Swiper extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            width: '',
             height: '',
-            index: 0
+            index: 0,
+            pause: false
         } 
     }
     componentWillMount(){
@@ -16,35 +16,37 @@ class Swiper extends Component {
     }
     componentDidMount(){
         const { sliderClass, autoplay } = this.props;
-        const width = this.container.offsetWidth;
-
         const height = this.container.querySelector('.'+sliderClass).offsetHeight;
         const sliderLength = this.container.querySelectorAll('.'+sliderClass).length;
-        
         this.setHeight(height);
-        
-        this.setState({
-            width: this.container.offsetWidth+15,
-        })
-
         if(autoplay){
             this.time = setInterval(() => this.next(sliderLength),3000)
+            this.container.addEventListener('mouseover',this.pausePlay.bind(this))
+            this.container.addEventListener('mouseout',this.startPlay.bind(this,sliderLength))
         }
-        
-        window.addEventListener("resize", this.resize);
-
     }
     componentWillUnmount(){
-
-        window.removeEventListener("resize", this.resize);
-        clearInterval(this.time)
+        if(this.props.autoplay){
+            clearInterval(this.time)
+        }   
     }
-    resize(){
-        this.setState({
-            width: this.container.offsetWidth,
-        })
+    pausePlay(){
+        if(this.props.autoplay){
+            clearInterval(this.time)
+            this.setState({
+                pause: true
+            })
+        }
     }
-    setHeight(height) {
+    startPlay(sliderLength){
+        if(this.props.autoplay && this.state.pause){
+            this.time = setInterval(() => this.next(sliderLength),3000)
+            this.setState({
+                pause: false
+            })
+        }
+    }
+    setHeight(height){
         this.setState({
             height: height,
         })
@@ -67,16 +69,16 @@ class Swiper extends Component {
     render(){
          const { dots, effect, vertical, children } = this.props;
          const { dotsClass, swiperClass, swiperContainClass, sliderListClass, sliderClass, dotActiveClass } = this.props;
-         const { width, index, height } = this.state;
+         const { index, height } = this.state;
          const tabIndex = -1;
          const sliderLength = React.Children.count(children);
          const sliderListStyle = effect === 'scroll' ? {
-            width: vertical ? width : width * sliderLength,
-            transform: vertical ? 'translate3d(0,'+tabIndex*index*height+'px,0)': 'translate3d('+tabIndex*index*width+'px,0,0)',
+            width: vertical ? '100%' : 100* sliderLength+'%',
+            transform: vertical ? 'translate3d(0,'+tabIndex*index*height+'px,0)': 'translate3d('+tabIndex*index*100/sliderLength+'%,0,0)',
             transition: 'transform 0.4s',
             height: vertical ? height * sliderLength : height
          }: {
-            width: width,
+            width: '100%',
             height: height,
          }
 
@@ -88,8 +90,8 @@ class Swiper extends Component {
             React.cloneElement(child,{
                 className: sliderClass,
                 "data-index": i,
-                style: effect === 'scroll' ? {width: width} : {
-                    width: width,
+                style: effect === 'scroll' ? {width: vertical ? '100%' : 100/sliderLength + '%'} : {
+                    width: '100%',
                     transition: 'opacity 0.4s',
                     position: "absolute",
                     left: 0,
@@ -101,7 +103,7 @@ class Swiper extends Component {
          const dotsArr = Array.from(new Array(sliderLength),(val,index)=>index);
         return (
             <div className={vertical ? swiperClass+'-vertical' : swiperClass}>
-                <div className="swpier-wrapper"  >
+                <div className="swpier-wrapper">
                     <div className={swiperContainClass} style={sliderContainerStyle} ref={(ref) => this.container = ref}>
                         <div className={sliderListClass} style={sliderListStyle}>
                             {childrenWithProps}
