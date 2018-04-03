@@ -1,0 +1,56 @@
+$defaultColor: #676767;
+$primaryColor: #138D75;
+$dangerColor: #FF5733;
+$borderColor: #d0d0d0;
+$dashedColor: #eeeeee;
+$white: #fff;
+
+
+
+.heki-btn{
+	display: inline-block;
+	border: 1px solid $borderColor;
+	border-radius: 4px;
+	color: $defaultColor;
+	font-size: 1em;
+	cursor: pointer;
+	padding: 0 15px;
+    height: 32px;
+	&:hover,&.heki-btn-active{
+		color: $primaryColor;
+		border: 1px solid $primaryColor;
+	}
+	&.heki-btn-small{
+		height: 26px;
+	}
+	&.heki-btn-large{
+		height: 38px;
+	}
+	&.heki-btn-primary{
+		color: $white;
+		border: 1px solid $primaryColor;
+		background: $primaryColor;
+		&:hover{
+			opacity: 0.8;
+		}
+	}
+	&.heki-btn-danger{
+		border: 1px solid $dangerColor;
+		color: $dangerColor;
+		&:hover{
+			color: $white;
+			background: $dangerColor;
+		}
+	}
+	&.heki-btn-dashed{
+		border: 1px dashed $borderColor;
+	}
+	&.heki-btn-disabled{
+		pointer-events: none;
+    	cursor: default;
+		background: $dashedColor;
+		opacity: 0.6;
+	}
+		
+}
+

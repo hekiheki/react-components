@@ -1,3 +1,4 @@
 import Swiper from './Swiper/Swiper';
+import Button from './Button/Button';
 
-export default Swiper;
+export { Swiper, Button };

@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
-import './Swiper.css';
+import './Swiper.scss';
 
 class Swiper extends Component {
     constructor(props) {
@@ -137,6 +137,7 @@ Swiper.propTypes = {
     sliderClass: PropTypes.string,
     dotActiveClass: PropTypes.string
 }
+
 Swiper.defaultProps = {
     dots: true,
     autoplay: false,
@@ -151,4 +152,5 @@ Swiper.defaultProps = {
     sliderClass: 'slider-item',
     dotActiveClass: 'slider-active'
 }
+
 export default Swiper;
