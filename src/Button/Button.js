@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import './Button.scss';
 
 class Button extends Component {
-    constructor(props) {
-        super(props);
-    }
     handleClick(e){
         if(this.props.disabled){
             return;

@@ -1,0 +1,28 @@
+$defaultColor: #676767;
+$activeColor: #138D75;
+$dangerColor: #FF5733;
+$borderColor: #d0d0d0;
+$disabledColor: #eeeeee;
+
+.heki-input{
+	padding: 2px 11px;
+	height: 32px;
+	border: 1px solid $borderColor;
+	outline: none;
+	border-radius: 2px;
+	&:hover,&:focus{
+		border-color: $activeColor
+	}
+	&.heki-input-small{
+		height: 24px;
+	}
+	&.heki-input-large{
+		height: 40px;
+	}
+	&.heki-input-disabled{
+		pointer-events: none;
+    	cursor: default;
+		background: $disabledColor;
+		opacity: 0.6;
+	}
+}
