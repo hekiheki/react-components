@@ -3,6 +3,26 @@
 组件包括： Swiper,Input,Button
 持续更新中。。。
 
+* 安装
+
+```
+$ git clone https://github.com/hekiheki/react-components.git
+$ npm link || yarn link
+```
+
+* 引入
+
+```
+$ npm link heki
+```
+
+* css引入
+
+```
+@import '~heki/build/heki.css';
+```
+
+
 1.Swiper  演示地址： <http://www.hekibun.com/swiper>
 	
 API
@@ -75,20 +95,6 @@ API
             <td>'slider-item'</td>
         </tr>
 </table>
-
-
-* 安装
-
-```
-$ git clone https://github.com/hekiheki/react-components.git
-$ npm link || yarn link
-```
-
-* 引入
-
-```
-$ npm link heki
-```
 
 * 使用
 
