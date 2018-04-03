@@ -1,9 +1,9 @@
 # react-components
 
+组件包括： Swiper,Input,Button
+持续更新中。。。
 
-暂时只有Swiper  持续完善中 
-
-Swiper  演示地址： <http://www.hekibun.com/swiper>
+1.Swiper  演示地址： <http://www.hekibun.com/swiper>
 	
 API
 
@@ -87,14 +87,14 @@ $ npm link || yarn link
 * 引入
 
 ```
-$ npm link react-components
+$ npm link heki
 ```
 
 * 使用
 
 ```
 // 在项目中引用
-import Swiper form 'react-components'
+import Swiper form 'heki'
 
 render(){
 	return (
